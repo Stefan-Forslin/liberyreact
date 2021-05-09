@@ -1,31 +1,13 @@
 import React from 'react';
 import './App.css';
-
+import Catalouge from './components/catalogue/Catalogue'
+import BorrowList from './components/borrow/BorrowList'
 function App() {
   return (
 	  <main>
-	  <div className="border">
-		 <h1>Catalouge</h1>
-			 <div className="flex-container">
-			    <div className="book-card">
-			      <h2>titel</h2>
-			      <p>författare</p>
-			     <button>borrow me!</button>
-				 </div>
-			  </div>
-			 </div>
-			  <div className="border">
-			    <h1> My borrowed books</h1>
-			     <div className="flex-container">
-			      <div className="book-card">
-			      <h2>titel</h2>
-			      <p>författare</p>
-			     <button>Return</button>
-			    </div>
-	         </div>
-	    </div>
+	       <Catalouge />
+		   <BorrowList />
 		</main>
   );
 }
-
 export default App;
