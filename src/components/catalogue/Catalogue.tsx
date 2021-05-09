@@ -12,11 +12,17 @@ const books: Book[] =[
 ]
 const Catalouge = () =>{
 	const [bookList, setBookList] = useState(books)
+	const borrowBook = (borrowedBook: Book) =>{
+		let newList = bookList.filter(
+			book => book.id !== borrowedBook.id
+		)
+		setBookList(newList)
+	}
 	 return (
 	<section className="border">
 	   <h1>Catalouge</h1>
 		   <div className="flex-container">
-		   {bookList.map(book => <BookComponent book={book}/>)}
+		   {bookList.map(book => <BookComponent book={book} borrowBook={borrowBook}/>)}
 		</div>
 	</section>
   )

@@ -1,12 +1,13 @@
 import {Book} from '../../types/Book'
 interface BookComponentProps{
-	book: Book
+	book: Book,
+	borrowBook: (borrowedBook: Book) => void
 }
-const BookComponent = ({book: {title, author}}: BookComponentProps) =>(
+const BookComponent = ({book, borrowBook}: BookComponentProps) =>(
 	<div className="book-card">
-	  <h2>{title}</h2>
-	  <p>{author}</p>
-	 <button>borrow me!</button>
+	  <h2>{book.title}</h2>
+	  <p>{book.author}</p>
+	 <button onClick={() =>borrowBook(book)}>borrow me!</button>
 	 </div>
 )
 export default BookComponent
