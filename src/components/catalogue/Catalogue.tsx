@@ -10,19 +10,23 @@ const books: Book[] =[
 	{id: 6, title: 'Hata Dig Själv, Som Du Hatar Andra', author:'Oliver Dagnå'},
 	{id: 7, title: 'Harry Potter Och Flammande Bägaren', author:'J.K Rowling'}
 ]
-const Catalouge = () =>{
+interface Props {
+	handleBookBorrowed: (book: Book) => void
+}
+const Catalouge = ({handleBookBorrowed}: Props) =>{
 	const [bookList, setBookList] = useState(books)
 	const borrowBook = (borrowedBook: Book) =>{
 		let newList = bookList.filter(
 			book => book.id !== borrowedBook.id
 		)
 		setBookList(newList)
+		handleBookBorrowed(borrowedBook)
 	}
 	 return (
 	<section className="border">
 	   <h1>Catalouge</h1>
 		   <div className="flex-container">
-		   {bookList.map(book => <BookComponent book={book} borrowBook={borrowBook}/>)}
+		   {bookList.map(book => <BookComponent book={book} borrowBook={borrowBook} key={book.id}/>)}
 		</div>
 	</section>
   )
